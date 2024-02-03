@@ -129,6 +129,28 @@
       </div>
     </div>
   </section>
+     <div class="footer" id="viewCountFooter">
+      View Count: <span id="viewCount">Loading...</span>
+  </div>
+
+  <script>
+      // Function to get or initialize view count
+      function getViewCount() {
+          let count = localStorage.getItem('viewCount');
+          return count ? parseInt(count) : 0;
+      }
+
+      // Function to update view count and display on the page
+      function updateViewCount() {
+          let count = getViewCount();
+          count++;
+          localStorage.setItem('viewCount', count);
+          document.getElementById('viewCount').innerText = count;
+      }
+
+      // Call updateViewCount on page load
+      window.addEventListener('load', updateViewCount);
+  </script>
 </body>
 
 </html>
